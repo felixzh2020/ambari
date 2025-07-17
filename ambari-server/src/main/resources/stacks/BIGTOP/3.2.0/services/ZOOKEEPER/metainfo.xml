@@ -37,6 +37,17 @@
             <scriptType>PYTHON</scriptType>
             <timeout>1200</timeout>
           </commandScript>
+          <customCommands>
+            <customCommand>
+              <name>FELIXZH_TEST</name>
+              <commandScript>
+                <script>scripts/zookeeper_server.py</script>
+                <scriptType>PYTHON</scriptType>
+                <timeout>1200</timeout>
+              </commandScript>
+              <background>false</background>
+            </customCommand>
+          </customCommands>
           <logs>
             <log>
               <logId>zookeeper</logId>

@@ -143,6 +143,14 @@ class ZookeeperServerLinux(ZookeeperServer):
 
     return [status_params.zk_pid_file]
 
+  def felixzh_test(self, env):
+    print ('custom command test ok by felixzh......')
+    context = self.config['commandParams']['context']
+    params = dict(item.split("=") for item in context.split()[1:])
+    param1 = params.get("param1", "default")
+    param2 = params.get("param2", "default")
+    print("Received param1: {}, param2: {}".format(param1, param2))
+
 
 @OsFamilyImpl(os_family=OSConst.WINSRV_FAMILY)
 class ZookeeperServerWindows(ZookeeperServer):
