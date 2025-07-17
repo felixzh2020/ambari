@@ -1154,6 +1154,11 @@ class ActionScheduler implements Runnable {
     }
     Map<String, String> commandParamsCmd = cmd.getCommandParams();
     commandParamsCmd.putAll(commandParams);
+
+    if (cmd.getRoleCommand() == RoleCommand.CUSTOM_COMMAND) {
+      commandParamsCmd.put("context", r.getRequestContext());
+    }
+
     cmd.setCommandParams(commandParamsCmd);
 
     try {
