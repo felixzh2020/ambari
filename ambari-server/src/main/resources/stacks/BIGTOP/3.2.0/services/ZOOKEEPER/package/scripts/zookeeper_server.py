@@ -146,10 +146,12 @@ class ZookeeperServerLinux(ZookeeperServer):
   def felixzh_test(self, env):
     print ('custom command test ok by felixzh......')
     context = self.config['commandParams']['context']
-    params = dict(item.split("=") for item in context.split()[1:])
-    param1 = params.get("param1", "default")
-    param2 = params.get("param2", "default")
-    print("Received param1: {}, param2: {}".format(param1, param2))
+    params = {}
+    for item in context.split():
+        if "=" in item:
+           key, value = item.split("=", 1) # only split one
+           params[key] = value
+    print("Received params: {}".format(params))
 
 
 @OsFamilyImpl(os_family=OSConst.WINSRV_FAMILY)
